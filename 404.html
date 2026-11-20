@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting — Mind Wave Academy</title>
+    <script>
+      (function () {
+        var l = window.location;
+        var segments = l.pathname.split('/').filter(Boolean);
+        var isGithubProjectSite =
+          l.hostname.endsWith('.github.io') && segments.length > 1;
+        var basePath = isGithubProjectSite ? '/' + segments[0] + '/' : '/';
+        var routeSegments = isGithubProjectSite ? segments.slice(1) : segments;
+        var routePath = routeSegments.join('/');
+        var target =
+          l.protocol +
+          '//' +
+          l.host +
+          basePath +
+          '#/' +
+          routePath +
+          (l.search || '') +
+          (l.hash && l.hash !== '#/' ? l.hash.replace(/^#/, '') : '');
+        l.replace(target);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
