@@ -1,14 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="corporate-light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-    <script type="module" crossorigin src="/mindwave/assets/index-DjzxW03E.js"></script>
-    <link rel="stylesheet" crossorigin href="/mindwave/assets/index-Cv6uxNgg.css">
+    <title>Mind Wave Academy — Learning Management System</title>
+    <meta name="description" content="Mind Wave Academy official portal for students, teachers, parents, and administrators." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        var DARK_THEMES = ['corporate-dark', 'saas-dark', 'teal-dark', 'amber-dark'];
+        var ALL_THEMES = ['corporate-light', 'saas-light', 'teal-light', 'amber-light'].concat(DARK_THEMES);
+        try {
+          var saved = localStorage.getItem('mindwave_theme');
+          var theme = ALL_THEMES.indexOf(saved) !== -1 ? saved : 'corporate-light';
+          document.documentElement.setAttribute('data-theme', theme);
+          if (DARK_THEMES.indexOf(theme) !== -1) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'corporate-light');
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/mindwave/assets/index-BmTq3WYX.js"></script>
+    <link rel="stylesheet" crossorigin href="/mindwave/assets/index-Bfx9PJBC.css">
   </head>
   <body>
     <div id="root"></div>
   </body>
 </html>
-
